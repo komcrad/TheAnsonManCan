@@ -1,12 +1,6 @@
 $(document).ready(function(){
-	$('#loadHome').click(function() {
-		loadHome();
-	});
-	$('#loadInfo').click(function() {
-		loadInfo();
-	});
 	//loadToSwap('hello.html');
-	$('#swap').load("hello.html #swap");
+	$('#swap').load("html/home.html");
 });
 
 function loadHome() {
