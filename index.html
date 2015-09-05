@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>The Anson Man Can</title>
-		<script src='js/jquery.js' type="text/javascript"></script>
+		<script src="js/jquery.js"></script>
 		<script src='js/main.js' type="text/javascript"></script>
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -13,8 +13,8 @@
 	</head>
 	<body>
 		<ul class="nav nav-tabs">
-			<li><a href="index.html">Home</a></li>
-			<li><a href="#">Info</a></li>	
+			<li><a href="#" id="loadHome">Home</a></li>
+			<li><a href="#" id="loadInfo">Info</a></li>	
 		</ul>
 		<div class="container-fluid">
 			<div class="row">
@@ -22,7 +22,9 @@
 					<h1 class="text-center">Under Construction</h1>
 				</div>
 			</div>
-			<div id="swap"></div>
+			<div id="swap" class="container">
+				<!-- content is swapped in and out by main.js -->
+			</div>
 		</div>		
 	</body>
 </html>
