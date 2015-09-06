@@ -6,9 +6,11 @@ $(document).ready(function(){
 
 function loadHome() {
 	$("#swap").load("html/home.html", function() {
-		$('#imageLoader').prop("src", "images/high-campaignPoster.jpg");
-		$("#imageLoader").load(function() {
-			$("#campaignPoster").prop("src", "images/high-campaignPoster.jpg");
+		$("#campaignPoster").load(function() {
+			$('#imageLoader').prop("src", "images/high-campaignPoster.jpg");
+			$("#imageLoader").load(function() {
+				$("#campaignPoster").prop("src", "images/high-campaignPoster.jpg");
+			});
 		});
 	});
 	
@@ -25,13 +27,4 @@ function loadToSwap(stringToLoad) {
 
 function addToSwap(newHtml) {
 	$('#swap').html($('#swap').html() + newHtml);
-}
-
-function loadImage(imageId, newImageSource) {
-	$(document).ready(function() {
-		$("#imageLoader").prop("src", newImageSource);
-		$(imageId).ready(function() {
-			$(this).prop("src", newImageSource);
-		});
-	});
 }
