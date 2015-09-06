@@ -1,10 +1,20 @@
 $(document).ready(function(){
 	//loadToSwap('hello.html');
-	$('#swap').load("html/home.html");
+	//$('#swap').load("html/home.html");
+	loadHome();
 });
 
 function loadHome() {
-	loadToSwap("home.html");
+	$("#swap").load("html/home.html", function() {
+		$("#campaignPoster").load(function() {
+			$('#imageLoader').prop("src", "images/high-campaignPoster.jpg");
+			$("#imageLoader").load(function() {
+				$("#campaignPoster").prop("src", "images/high-campaignPoster.jpg");
+			});
+		});
+	});
+	
+	//loadImage("#campaignPoster", "images/high-campaignPoster.jpg");
 }
 
 function loadInfo() {
@@ -12,7 +22,7 @@ function loadInfo() {
 }
 
 function loadToSwap(stringToLoad) {
-	$('#swap').load(stringToLoad + " #swap");
+	$('#swap').load(stringToLoad);
 }
 
 function addToSwap(newHtml) {
