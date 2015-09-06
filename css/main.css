@@ -8,3 +8,7 @@
 .height-7 {
 	heigth: 70vh;
 }
+
+.hidden {
+	display: none;
+}
