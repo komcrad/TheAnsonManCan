@@ -1,6 +1,9 @@
 .margin-bot-2 {
 	margin-bottom: 2em;
 }
+.margin-bot-3{
+	margin-bottom: 3em;
+}
 .height-6 {
 	heigth: 60vh;
 }
@@ -13,6 +16,36 @@
 	display: none;
 }
 
-h2 {
+h1, h2, h3, h4, h5, h6 {
 	font-family: "Times New Roman", Times, serif;
 }
+
+p {
+	font-size: 1.2em;
+}
+
+hr {
+	width: 100vw;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+footer {
+	text-align: right;
+	width: 100%;
+	background-color: #EBEBEB;
+	padding:2vh;
+}
+footer *{
+	display:inline-block;
+	margin-right: 2vw;
+}
+
+
+span {
+	font-size: 1.5em;
+	margin-left: 0; 
+}
+ #footer {
+
+ }
