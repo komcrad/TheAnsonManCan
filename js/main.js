@@ -7,9 +7,6 @@ $(document).ready(function(){
 	$("#loadInfo").click(function() {
 		loadInfo();
 	});
-	$("#loadInfo2").click(function() {
-		loadInfo2();
-	});
 	if (getCookieValue("position") == "home") {
 		$("#swap").load("html/home.html", function() {
 			$("#swap").fadeIn("fast");
@@ -46,14 +43,6 @@ function loadInfo() {
 		$("#swap").load("html/info.html", function(){
 			$("#swap").fadeIn("fast");
 			createCookie("position", "info", 30);
-		});
-	});
-}
-
-function loadInfo2() {
-	$("#swap").fadeOut("fast", function() {
-		$("#swap").load("html/info2.html", function(){
-			$("#swap").fadeIn("fast");
 		});
 	});
 }
