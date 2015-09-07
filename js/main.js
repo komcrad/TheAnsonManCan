@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	//loadToSwap('hello.html');
 	//$('#swap').load("html/home.html");
+	
 	$("#loadHome").click(function() {
 		loadHome();
 	});
