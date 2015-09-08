@@ -8,19 +8,15 @@ $(document).ready(function(){
 	$("#loadInfo").click(function() {
 		loadInfo();
 	});
-	if (getCookieValue("position") == "home") {
-		$("#swap").load("html/home.html", function() {
-			$("#swap").fadeIn("fast");
-			$("#campaignPoster").load(function() {
-				$('#imageLoader').prop("src", "images/high-campaignPoster.jpg");
-				$("#imageLoader").load(function() {
-					$("#campaignPoster").prop("src", "images/high-campaignPoster.jpg");
-				});
+	$("#swap").load("html/home.html", function() {
+		$("#swap").fadeIn("fast");
+		$("#campaignPoster").load(function() {
+			$('#imageLoader').prop("src", "images/high-campaignPoster.jpg");
+			$("#imageLoader").load(function() {
+				$("#campaignPoster").prop("src", "images/high-campaignPoster.jpg");
 			});
 		});
-	} else {
-		loadInfo();
-	}
+	});
 });
 
 function loadHome() {
