@@ -1,3 +1,12 @@
+var entityMap = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': '&quot;',
+    "'": '&#39;',
+    "/": '&#x2F;'
+};
+
 $(document).ready(function(){
 	//loadToSwap('hello.html');
 	//$('#swap').load("html/home.html");
@@ -7,6 +16,9 @@ $(document).ready(function(){
 	});
 	$("#loadInfo").click(function() {
 		loadInfo();
+	});
+	$("#loadPosts").click(function() {
+		loadPosts();
 	});
 	$("#swap").load("html/home.html", function() {
 		$("#swap").fadeIn("fast");
@@ -44,6 +56,36 @@ function loadInfo() {
 	});
 }
 
+function loadPosts() {
+	$("#swap").fadeOut('fast', function() {
+		$("#swap").load("html/posts.html", function() {
+			$("#swap").fadeIn("fast");
+			
+			$("#submitPost").click(function() {
+				if ($('#postAuthor').val() != "" && $('#postContent').val() != "") {
+					submitForm("#postForm", "#swap2");
+				} else {
+					alert("I cannot accept a blank post.");
+				}
+			});
+			
+			$("#postForm").submit(function() {
+				return false;
+			});
+			$.ajax({
+            	type: 'post',
+             	url: 'php/loadPosts.php',
+             	success: function(data) {
+                	$("#swap2").html((data));
+             	},
+             	error: function() {
+                	alert("We were unable to load the posts :'(");
+             	}
+         	});
+		});
+	}); 
+}
+
 function loadToSwap(stringToLoad) {
 	$('#swap').load(stringToLoad);
 }
@@ -66,3 +108,21 @@ function getCookieValue(name) {
 		}
 	}
 }
+
+function submitForm(formID, resultContainerID) {
+    $("#postAuthor").val(escapeHtml($("#postAuthor").val()));
+    $("#postContent").val(escapeHtml($("#postContent").val()));
+    $.post(
+        $(formID).attr('action'),
+        $(formID).serializeArray(),
+        function(data) {
+           loadPosts();
+        }
+    );
+}
+
+function escapeHtml(string) {
+    return String(string).replace(/[&<>"'\/]/g, function (s) {
+      return entityMap[s];
+    });
+ }
