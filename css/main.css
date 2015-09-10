@@ -77,3 +77,41 @@ td {
 	width: 50%;
 	font-size: 1.2em;
 }
+
+.post {
+	padding: 1em;
+	border-radius: 4px;
+	border-bottom: 2px solid #dadada 
+}
+
+.author {
+	float: right;
+	font-size: .85em;
+	font-style: italic;
+}
+
+input {
+	width: 100%;
+	height: 3em;
+	font-size: 1em;
+	margin-bottom: 1em;
+}
+
+textarea {
+	width: 100%;
+	font-size: 1em;
+	resize: vertical;
+}
+
+#submitPost {
+	width: 100%;
+	background-color: #ffffff;
+	border: 1px solid #dadada;
+	height: 4em;
+}
+
+#pageNumber {
+	background-color: #ffffff;
+	border: 1px solid #dadada;
+	float: right;
+}

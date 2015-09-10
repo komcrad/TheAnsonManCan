@@ -61,6 +61,21 @@ function loadPosts() {
 		$("#swap").load("html/posts.html", function() {
 			$("#swap").fadeIn("fast");
 			
+			$("#pageNumber").change(function() {
+				var page = $(this).val();
+				$.ajax({
+            		type: 'post',
+             		url: 'php/loadPosts.php',
+             		data: {pageNumber:page},
+             		success: function(data) {
+	                	$("#swap2").html(data);
+             		},
+             		error: function() {
+            	    	alert("We were unable to load the posts :'(");
+             		}
+         		});
+				
+			});
 			$("#submitPost").click(function() {
 				if ($('#postAuthor').val() != "" && $('#postContent').val() != "") {
 					submitForm("#postForm", "#swap2");
@@ -77,6 +92,13 @@ function loadPosts() {
              	url: 'php/loadPosts.php',
              	success: function(data) {
                 	$("#swap2").html((data));
+                	var i = parseInt($("#numberOfPosts").text());
+                	var optionString = "";
+                	for(var j = 1; i > 0; j++) {
+                		optionString = optionString + "<option value="+j * 10+">Page "+j+"</option>";
+                		i = i - 10;
+                	}
+                	$("#pageNumber").html(optionString);
              	},
              	error: function() {
                 	alert("We were unable to load the posts :'(");
