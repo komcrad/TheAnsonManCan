@@ -1,22 +1,21 @@
-
+<meta HTTP-EQUIV="EXPIRES" CONTENT="0">
+<select name="pageNumber" id="pageNumber">
+   	<option value=10>1</option>
+ 	<option value=20>2</option>
+</select>
+<br>
+<div id="swap2"></div>
 <form method='post' name='postForm' action='php/insertPost.php' id='postForm' class="margin-bot-3">
     <div "row">
 	   	<div class="col-sm-4 col-sm-offset-4 text-center">
-    		<label>Name:</label>
-    		<input name='postAuthor' id='postAuthor' type='text' required><br>
+    		<input name='postAuthor' id='postAuthor' type='text' placeholder="Your name..." required><br>
     	</div>
    	</div>
    	<div class="row">
    		<div class="col-sm-4 col-sm-offset-4 text-center">
-	   		<label>Post Content:</label>
-	   		<textarea name='postContent' id='postContent' type='textarea' required></textarea><br>
+	   		<textarea name='postContent' id='postContent' type='text' placeholder="Put message here..." required></textarea><br>
 	   		<button id='submitPost'>Submit</button>
 	   	</div>
    	</div>
-	   
-   	
-   	
 </form>
-
-<div id="swap2"></div>
 
