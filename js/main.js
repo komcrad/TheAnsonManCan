@@ -49,7 +49,7 @@ function loadHome() {
 
 function loadInfo() {
 	$("#swap").fadeOut("fast", function() {
-		$("#swap").load("html/info.html", function(){
+		$("#swap").load("html/info.html?"+new Date().getTime(), function(){
 			$("#swap").fadeIn("fast");
 			createCookie("position", "info", 30);
 		});
